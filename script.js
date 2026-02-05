@@ -1,32 +1,18 @@
-function detectDevice() {
-    var deviceType = document.getElementById("deviceType");
-    var featureList = document.getElementById("featureList");
-
-    if (window.innerWidth < 768) {
-        deviceType.textContent = "You are using a mobile device.";
-
-        featureList.innerHTML = `
-            <div class="border rounded p-3 bg-gray-50">Mobile Feature 1</div>
-            <div class="border rounded p-3 bg-gray-50">Mobile Feature 2</div>
-        `;
-    } 
-    else if (window.innerWidth < 1024) {
-        deviceType.textContent = "You are using a tablet.";
-
-        featureList.innerHTML = `
-            <div class="border rounded p-3 bg-gray-50">Tablet Feature 1</div>
-            <div class="border rounded p-3 bg-gray-50">Tablet Feature 2</div>
-        `;
-    } 
-    else {
-        deviceType.textContent = "You are using a desktop.";
-
-        featureList.innerHTML = `
-            <div class="border rounded p-3 bg-gray-50">Desktop Feature 1</div>
-            <div class="border rounded p-3 bg-gray-50">Desktop Feature 2</div>
-        `;
-    }
+function generateRandomNumber() {
+    const random = Math.floor(Math.random() * 100) + 1;
+    document.getElementById("randomNumber").textContent = random;
 }
 
-window.onload = detectDevice;
-window.onresize = detectDevice;
+function addItem() {
+    const ul = document.getElementById("itemList");
+    const li = document.createElement("li");
+    li.textContent = "Item " + (ul.children.length + 1);
+    ul.appendChild(li);
+}
+
+function removeItem() {
+    const ul = document.getElementById("itemList");
+    if (ul.lastChild) {
+        ul.removeChild(ul.lastChild);
+    }
+}

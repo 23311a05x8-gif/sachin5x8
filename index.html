@@ -2,75 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adaptive Landing Page</title>
-    <link rel="stylesheet" href="tailwind.css">
+    <title>Random Number Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-<body class="bg-white text-gray-800">
+<body>
 
-    <!-- Header -->
-    <header class="bg-red-300 text-white text-center py-6">
-        <h1 class="text-2xl font-bold">Welcome to Our Service</h1>
-        <p id="deviceType" class="text-sm mt-1"></p>
-    </header>
+<header>
+    <h1>Welcome to the Random Number Generator</h1>
+</header>
 
-    <!-- Main Content -->
-    <main class="max-w-3xl mx-auto p-6">
+<main>
+    <button onclick="generateRandomNumber()">Generate Random Number</button>
+    <div id="randomNumber"></div>
 
-        <!-- Hero Section -->
-        <section class="text-center mb-6">
-            <h2 class="text-xl font-bold mb-1">Discover Our Solutions</h2>
-            <p class="text-sm">
-                We provide top-notch solutions tailored to your needs.
-            </p>
-        </section>
+    <button onclick="addItem()">Add Item</button>
+    <button onclick="removeItem()">Remove Item</button>
 
-        <!-- Features -->
-        <section class="mb-6">
-            <h3 class="text-lg font-bold mb-3">Features</h3>
-            <div id="featureList" class="grid grid-cols-2 gap-4">
-                <!-- Dynamic features -->
-            </div>
-        </section>
+    <ul id="itemList"></ul>
+</main>
 
-        <!-- Contact -->
-        <section>
-            <h3 class="text-lg font-bold mb-1">Contact Us</h3>
-            <p class="text-sm mb-3">
-                Get in touch with us for more information.
-            </p>
+<footer>
+    &copy; 2025 Random Number Generator
+</footer>
 
-            <form class="space-y-3">
-                <div>
-                    <label class="text-sm font-semibold">Name:</label>
-                    <input type="text" class="w-full border rounded p-2">
-                </div>
-
-                <div>
-                    <label class="text-sm font-semibold">Email:</label>
-                    <input type="email" class="w-full border rounded p-2">
-                </div>
-
-                <div>
-                    <label class="text-sm font-semibold">Message:</label>
-                    <textarea rows="4" class="w-full border rounded p-2"></textarea>
-                </div>
-
-                <button type="submit"
-                    class="w-full bg-red-300 text-white py-2 rounded hover:bg-red-500">
-                    Send Message
-                </button>
-            </form>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-3 mt-6">
-        <p class="text-sm">© 2024 Our Service</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
-
