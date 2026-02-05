@@ -1,25 +1,32 @@
-const toggleBtn = document.getElementById('theme-toggle');
-const storageMsg = document.getElementById('storage-msg');
+function detectDevice() {
+    var deviceType = document.getElementById("deviceType");
+    var featureList = document.getElementById("featureList");
 
-// 1. Check Local Storage on load
-const currentTheme = localStorage.getItem('theme');
+    if (window.innerWidth < 768) {
+        deviceType.textContent = "You are using a mobile device.";
 
-if (currentTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-    storageMsg.innerText = "Status: Dark Mode (Loaded from LocalStorage)";
-} else {
-    storageMsg.innerText = "Status: Light Mode (Default)";
+        featureList.innerHTML = `
+            <div class="border rounded p-3 bg-gray-50">Mobile Feature 1</div>
+            <div class="border rounded p-3 bg-gray-50">Mobile Feature 2</div>
+        `;
+    } 
+    else if (window.innerWidth < 1024) {
+        deviceType.textContent = "You are using a tablet.";
+
+        featureList.innerHTML = `
+            <div class="border rounded p-3 bg-gray-50">Tablet Feature 1</div>
+            <div class="border rounded p-3 bg-gray-50">Tablet Feature 2</div>
+        `;
+    } 
+    else {
+        deviceType.textContent = "You are using a desktop.";
+
+        featureList.innerHTML = `
+            <div class="border rounded p-3 bg-gray-50">Desktop Feature 1</div>
+            <div class="border rounded p-3 bg-gray-50">Desktop Feature 2</div>
+        `;
+    }
 }
 
-// 2. Event Listener for the button
-toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    
-    // Determine the current state
-    const isDark = document.body.classList.contains('dark-mode');
-    const theme = isDark ? 'dark' : 'light';
-
-    // 3. Save to Web Storage
-    localStorage.setItem('theme', theme);
-    storageMsg.innerText = `Preference updated: ${theme} mode saved to API`;
-});
+window.onload = detectDevice;
+window.onresize = detectDevice;
